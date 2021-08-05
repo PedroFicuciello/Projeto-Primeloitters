@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="lib/absolutelayout/AbsoluteLayout.jar"/>
+	<classpathentry kind="lib" path="lib/CopyLibs/org-netbeans-modules-java-j2seproject-copylibstask.jar"/>
+	<classpathentry kind="lib" path="E:/Documentos/NetBeansProjects/oshi-core-4.6.1.jar" sourcepath="E:/Documentos/NetBeansProjects/oshi-core-4.6.1.jar"/>
+	<classpathentry kind="lib" path="lib/jna-5.5.0.jar" sourcepath="lib/jna-5.5.0.jar"/>
+	<classpathentry kind="lib" path="E:/Documentos/NetBeansProjects/SwingProjeto/lib/jna-platform-5.5.0.jar"/>
+	<classpathentry kind="lib" path="E:/Documentos/NetBeansProjects/SwingProjeto/lib/slf4j-api-1.7.30.jar"/>
+	<classpathentry kind="lib" path="E:/Documentos/NetBeansProjects/SwingProjeto/lib/slf4j-simple-1.7.30.jar"/>
+	<classpathentry kind="output" path="build/classes"/>
+</classpath>

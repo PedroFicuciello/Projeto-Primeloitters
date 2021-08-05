@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste</title>
+
+    <script type="text/javascript" src="https://www.chartjs.org/dist/2.8.0/Chart.min.js"></script>
+    <script type="text/javascript" src="https://www.chartjs.org/samples/latest/utils.js"></script>
+    <script type="text/javascript" src="funcoes.js"></script>
+</head>
+
+<body onload="coletar()">
+    Olá, <b id="b_usuario"></b>
+    <h2>Aparentemente funcionou</h2>
+    <div id="testando"></div>
+</body>
+
+</html>
+<script>
+
+    let usuario;
+
+    verificar_autenticacao();
+
+    let idUsuario = getIdUsuario();
+
+    function coletar() {
+
+        fetch(`/estabelecimentos/recuperar/${idUsuario}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta[0])}`);
+
+                    for (i = 0; i < resposta.length; i++) {
+                        var registro = resposta[i];
+
+                        console.log(registro.codEstab);
+                        
+                        testando.innerHTML += `<button id="botao" onclick="escolherEstab()" value="${registro.idEstab}">
+                                                Estabelecimento codigo ${registro.codEstab}</button> <br>`;
+                    }
+                });
+
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+
+    }
+
+    function escolherEstab() {
+        var idEstabelecimento = botao.value;
+        
+        fetch(`/estabelecimentos/recuperar/${idUsuario}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+
+                    for (i = 0; i < resposta.length; i++) {
+
+                        var registro = resposta[i];
+
+                        if (idEstabelecimento == registro.idEstab) {
+                            
+                            console.log("vishi");
+                            sessionStorage.id_estabelecimento_meuapp = registro.idEstab;
+                            console.log(registro.codEstab);
+                            window.location.href = 'dash.html';
+
+                        }
+
+                    }
+                });
+
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+</script>

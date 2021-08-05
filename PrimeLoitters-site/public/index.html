@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="utf-8">
+    <title>PrimeLoitters</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicons -->
+    <link href="img/favicon.png" rel="icon">
+
+    <!-- Fontes -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+
+    <!-- Bootstrap CSS File -->
+    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Libraries CSS Files -->
+    <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Main Stylesheet File -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/login-register.css">
+
+    <link rel="stylesheet" href="css/botoes.css">
+
+</head>
+
+<body>
+
+    <!--==========================
+    Cabeçalho
+  ============================-->
+    <header id="header">
+        <div class="container-fluid">
+
+            <div id="logo" class="pull-left">
+                <h1><a href="#intro" class="scrollto">PrimeLoitters</a></h1>
+                <!-- Uncomment below if you prefer to use an image logo -->
+                <!-- <a href="#intro"><img src="img/logo.png" alt="" title="" /></a>-->
+            </div>
+
+            <nav id="nav-menu-container">
+                <ul class="nav-menu">
+                    <li class="menu-active"><a href="#intro">Inicio</a></li>
+                    <li><a href="#about">Sobre</a></li>
+                    <li><a href="#services">Serviços</a></li>
+                    <!-- <li><a href="#portfolio">Portfolio</a></li> -->
+                    <li><a href="#team">Time</a></li>
+                    <li><a href="#contact">Contato</a></li>
+                    <li class="menu-has-children has-dropdown"><a href="./login.html">Acessar</a>
+                        <!-- <ul class="dropdown">
+                            <li><a class="btn big-register" data-toggle="modal" href="javascript:void(0)" onclick="openRegisterModal();">Cadastro</a></li>
+                            <li><a class="btn big-login" data-toggle="modal" href="javascript:void(0)" onclick="openLoginModal();">Login</a></li>
+                        </ul> -->
+                    </li>
+                </ul>
+            </nav>
+            <!-- #nav-menu-container -->
+        </div>
+    </header>
+    <!-- #header -->
+
+    <div class="modal fade login" id="loginModal">
+        <div class="modal-dialog login animated">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Login</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="box">
+                        <div class="content">
+                            <div class="error"></div>
+                            <div class="form loginBox">
+                                <form id="form_login" method="post" onsubmit="return entrar()">
+                                    <input class="form-control" type="text" placeholder="Login" name="login">
+                                    <input class="form-control" type="password" placeholder="Senha" name="senha">
+                                    <button id="btn_entrar" class="btn btn-default btn-login">Entrar</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="content esqueciSenhaBox" style="display: none;">
+                            <div class="form">
+                                <form id="form_esqueciSenha" method="POST" onsubmit="return entrar()">
+                                    <input class="form-control" type="text" placeholder="email" name="email">
+                                    <button id="btn_recuperar" class="btn btn-default btn-login">Enviar link</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="content registerBox" style="display:none;">
+                            <div class="form">
+                                <form id="form_cadastro" method="post" onsubmit="return cadastrar()">
+                                    <input placeholder="Nome" type="text" name="nome_usuario_cadastro" required minlength="4">
+                                    <input placeholder="Login" type="text" class="form-control" name="login_cadastro" required minlength="4">
+                                    <input placeholder="Senha" type="password" class="form-control" name="senha_cadastro" required minlength="4">
+                                    <input placeholder="CPF" type="text" class="form-control" name="cpf_cadastro" required minlength="4">
+                                    <br>
+                                    <button class="btn btn-default btn-login" id="btn_cadastrar">Cadastrar</button>
+                                    <br>
+                                    <!-- <span><a href="">Esqueci minha senha</a></span> -->
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="forgot esqueciSenha-footer">
+                        <span>
+              <a href="javascript: showEsqueciSenhaForm();">Esqueci minha senha</a>
+            </span>
+                    </div>
+                    <div class="forgot login-footer">
+                        <span>Não é nosso cliente ainda?
+              <a href="javascript: showRegisterForm();">Cadastre-se</a></span>
+                    </div>
+                    <div class="forgot register-footer" style="display:none">
+                        <span>Já tem uma conta?</span>
+                        <a href="javascript: showLoginForm();">Login</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--==========================
+    Intro Section
+  ============================-->
+    <section id="intro">
+        <div class="intro-container">
+            <div id="introCarousel" class="carousel  slide carousel-fade" data-ride="carousel">
+
+                <ol class="carousel-indicators"></ol>
+
+                <div class="carousel-inner" role="listbox">
+
+                    <div class="carousel-item active">
+                        <div class="carousel-background"><img src="img/intro-carousel/1.jpg" alt=""></div>
+                        <div class="carousel-container">
+                            <div class="carousel-content">
+                                <h2>Nós somos profissionais</h2>
+                                <p>Experiência comprovada com grandes clientes e grandes empresas, a PrimeLoitters vem crescendo exponencialmente no mercado de serviços tecnológicos de monitoramento de máquina, prevendo picos e auxiliando na criação de estratégias
+                                    do seu estabelecimento.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="carousel-background"><img src="img/intro-carousel/2.jpg" alt=""></div>
+                        <div class="carousel-container">
+                            <div class="carousel-content">
+                                <h2>Nós somos especialistas</h2>
+                                <p>Nosso time conta com especialistas da área de Qualidade, Testes e Suporte, podendo atuar híbridamente nas mais diversas áreas existentes dentro do desenvolvimento de software.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="carousel-background"><img src="img/intro-carousel/3.jpg" alt=""></div>
+                        <div class="carousel-container">
+                            <div class="carousel-content">
+                                <h2>Nós somos qualificados</h2>
+                                <p>Nossos profissionais possuem graduação em uma das melhores faculdades de São Paulo, um dos grandes centros comérciais do mundo, e um dos mais movimentados e atualizados mercados de tecnologia do mundo. Temos experiência
+                                    em empresas especializadas em Automação de Software e Auditoria.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="carousel-background"><img src="img/intro-carousel/4.jpg" alt=""></div>
+                        <div class="carousel-container">
+                            <div class="carousel-content">
+                                <h2>Nós somos preeminentes</h2>
+                                <p>Baseado nas experiências de cada integrante, de acordo com nossa formação de excelência, assim como a realização de serviços com íntegra qualidade, e principalmente prezando as relações mais humanas com nossos clientes,
+                                    exaltamos a preferência de nossos clientes.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="carousel-background"><img src="img/intro-carousel/5.jpg" alt=""></div>
+                        <div class="carousel-container">
+                            <div class="carousel-content">
+                                <h2>Nós somos <b style="color: #18d26e;">PrimeLoitters</b></h2>
+                                <p>Nossos princípios seguem ao encontro ideal de sucesso dos grandes empreendedores. Prezamos em contribuir positivamente no comércio de nossos clientes e levar dados para que nossos usuários possam traçar estratégias de acordo
+                                    de seu objetivo.
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <a class="carousel-control-prev" href="#introCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon ion-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Voltar</span>
+                </a>
+
+                <a class="carousel-control-next" href="#introCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon ion-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Avançar</span>
+                </a>
+
+            </div>
+        </div>
+    </section>
+    <!-- #intro -->
+
+    <main id="main">
+
+        <!--==========================
+      Featured Services Section
+    ============================-->
+        <section id="featured-services">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-4 box">
+                        <i class="ion-ios-bookmarks-outline"></i>
+                        <h4 class="title"><a href="">Flexibilidade</a></h4>
+                        <p class="description">Possuímos uma pequena equipe, mas temos uma grande disponibilidade e flexibilidade em relação aos compromissos de nossos clientes.
+                        </p>
+                    </div>
+
+                    <div class="col-lg-4 box box-bg">
+                        <i class="ion-ios-stopwatch-outline"></i>
+                        <h4 class="title"><a href="">Pontualidade</a></h4>
+                        <p class="description">Respeitamos os horários de nossos clientes e somos pontuais em relação as nossas entregas, prezando sempre a participação dos mesmos.
+                        </p>
+                    </div>
+
+                    <div class="col-lg-4 box">
+                        <i class="ion-ios-heart-outline"></i>
+                        <h4 class="title"><a href="">Fidelidade</a></h4>
+                        <p class="description">Temos orgulho e satisfação em dizer que nossos clientes mantêm os nossos serviços e nos indicam para mais clientes parceiros, que possuem as mesmas dificuldades.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- #featured-services -->
+
+        <!--==========================
+      About Us Section
+    ============================-->
+        <section id="about">
+            <div class="container">
+
+                <header class="section-header">
+                    <h3>Sobre nós</h3>
+                    <p>Nascemos na Faculdade de Tecnologia Bandeirantes (Bandtec), em um projeto de Pesquisa e Inovação, onde criamos ferramentas capazes de detectar a perfomance em picos de uso das máquinas dos mercados que tenham um servidor interno e/ou
+                        externo.
+                        <br>Somos estagiários promissores das grandes empresas parceiras da faculdade.</p>
+                </header>
+
+                <div class="row about-cols">
+
+                    <div class="col-md-4 wow fadeInUp">
+                        <div class="about-col">
+                            <div class="img">
+                                <img src="img/about-mission.jpg" alt="" class="img-fluid">
+                                <div class="icon"><i class="ion-ios-speedometer-outline"></i></div>
+                            </div>
+                            <h2 class="title"><a href="#">Missão</a></h2>
+                            <p>
+                                Fornecer soluções de engenharia, tecnologia da informação e de processos para indústrias líderes;<br> Estabelecer com o cliente, funcionários e sociedade uma relação de longo prazo e contribuir para o desenvolvimento da
+                                tecnologia.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="about-col">
+                            <div class="img">
+                                <img src="img/about-plan.jpg" alt="" class="img-fluid">
+                                <div class="icon"><i class="ion-ios-list-outline"></i></div>
+                            </div>
+                            <h2 class="title"><a href="#">Visão</a></h2>
+                            <p>
+                                Ser empresa de referência, reconhecida como a melhor opção por clientes, colaboradores, comunidade, fornecedores e investidores;<br>Visamos a qualidade de nossos produtos, serviços e relacionamento.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="about-col">
+                            <div class="img">
+                                <img src="img/about-vision.jpg" alt="" class="img-fluid">
+                                <div class="icon"><i class="ion-ios-eye-outline"></i></div>
+                            </div>
+                            <h2 class="title"><a href="#">Valores</a></h2>
+                            <p>
+                                Qualidade e melhoria contínua dos produtos e serviços para satisfação dos consumidores;<br> Ética, respeito, honestidade, qualidade e inovação.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+        <!-- #sobre -->
+
+        <!--==========================
+      Services Section
+    ============================-->
+        <section id="services">
+            <div class="container">
+
+                <header class="section-header wow fadeInUp">
+                    <h3>Serviços</h3>
+                    <p>Realizamos serviços de testes e monitoramento de máquinas, a fim de evitar que o processamento atinja um nível crítico de usabilidade, impossibilitando a continuidade dos serviços, gerando atrasos e insatisfações de seus clientes.</p>
+                </header>
+
+                <div class="row">
+
+                    <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
+                        <div class="icon"><i class="ion-ios-analytics-outline"></i></div>
+                        <h4 class="title"><a href="">Teste de Stress</a></h4>
+                        <p class="description">São usados para verificar o limite de dados processados pelo software até que ele não consiga mais processá-lo.
+                        </p>
+                    </div>
+                    <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
+                        <div class="icon"><i class="ion-ios-bookmarks-outline"></i></div>
+                        <h4 class="title"><a href="">Teste de Carga</a></h4>
+                        <p class="description">Podem garantir um tempo de vida útil maior para o seu equipamento, já que muitas vezes eles encontram problemas que podem ser resolvidos antes que se torne algo crítico.
+                        </p>
+                    </div>
+                    <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
+                        <div class="icon"><i class="ion-ios-paper-outline"></i></div>
+                        <h4 class="title"><a href="">Teste de Resposta</a></h4>
+                        <p class="description">Ajudam a saber qual o limite de respostas ideal para que o sistema continue funcionando mesmo sobre pressão, já que o mesmo é limitado a um número máximo de respostas por segundo.
+                        </p>
+                    </div>
+                    <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
+                        <div class="icon"><i class="ion-ios-speedometer-outline"></i></div>
+                        <h4 class="title"><a href="">Teste de Velocidade</a></h4>
+                        <p class="description">É possível analisar em quanto tempo os acessos ocorrerão com grande número de usuarios, chegando assim a velocidade padrão para cada situação.
+                        </p>
+                    </div>
+                    <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
+                        <div class="icon"><i class="ion-ios-barcode-outline"></i></div>
+                        <h4 class="title"><a href="">Monitoramento de Recursos da Máquina</a></h4>
+                        <p class="description">É possível analisar os principais pontos do funcionamento da sua máquina sem precisar interferir diretamente em seus processos.
+                        </p>
+                    </div>
+                    <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
+                        <div class="icon"><i class="ion-ios-people-outline"></i></div>
+                        <h4 class="title"><a href="">Emissão de Alertas e Relatórios</a></h4>
+                        <p class="description">Fará com que seu sistema não sobrecarregue e a emissão de relatórios tornará a análise dos dados coletados mais compreensível.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+        <!-- #services -->
+
+        <!--==========================
+      Call To Action Section
+    ============================-->
+        <section id="call-to-action" class="wow fadeIn">
+            <div class="container text-center">
+                <h3>Sobre nossa ferramenta</h3>
+                <p>Monitoramento de maquina e servidores de mercados que possuem um servidor interno, oferecendo aos clientes uma ferramenta que consegue detectar a performance de uso, seja ele em pico de uso ou não.
+                </p>
+                <!-- <a class="cta-btn" href="#">Call To Action</a> -->
+            </div>
+        </section>
+        <!-- #call-to-action -->
+
+        <!--==========================
+      Skills Section
+    ============================-->
+        <section id="skills">
+            <div class="container">
+
+                <header class="section-header">
+                    <h3>Ranking dos testes</h3>
+                    <br>
+                </header>
+
+                <div class="skills-content">
+
+                    <div class="progress">
+                        <div class="progress-bar bg-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                            <span class="skill">Carga <i class="val">100%</i></span>
+                        </div>
+                    </div>
+
+                    <div class="progress">
+                        <div class="progress-bar bg-info" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+                            <span class="skill">Stress <i class="val">90%</i></span>
+                        </div>
+                    </div>
+
+                    <div class="progress">
+                        <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                            <span class="skill">Monitoramento de Recursos <i class="val">75%</i></span>
+                        </div>
+                    </div>
+
+                    <div class="progress">
+                        <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">
+                            <span class="skill">Alertas e Relatórios <i class="val">55%</i></span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!--==========================
+      Facts Section
+    ============================-->
+        <section id="facts" class="wow fadeIn">
+            <div class="container">
+
+                <header class="section-header">
+                    <h3>Testes Realizados</h3><br>
+                </header>
+
+                <div class="row counters">
+
+                    <div class="col-lg-3 col-6 text-center">
+                        <span data-toggle="counter-up">421</span>
+                        <p>Carga</p>
+                    </div>
+
+                    <div class="col-lg-3 col-6 text-center">
+                        <span data-toggle="counter-up">274</span>
+                        <p>Stress</p>
+                    </div>
+
+                    <div class="col-lg-3 col-6 text-center">
+                        <span data-toggle="counter-up">208</span>
+                        <p>Monitoramento de Recursos da Máquina</p>
+                    </div>
+
+                    <div class="col-lg-3 col-6 text-center">
+                        <span data-toggle="counter-up">18</span>
+                        <p>Emissão de Alertas e Relatórios</p>
+                    </div>
+
+                </div>
+
+                <div class="facts-img">
+                    <!-- <img src="img/facts-img.png" alt="" class="img-fluid"> -->
+                </div>
+
+            </div>
+        </section>
+        <!-- #facts -->
+
+        <!--==========================
+      Portfolio Section
+    ============================-->
+        <!-- <section id="portfolio" class="section-bg">
+      <div class="container">
+
+        <header class="section-header">
+          <h3 class="section-title">Testes que realizamos</h3>
+        </header>
+
+        <div class="row">
+          <div class="col-lg-12">
+            <ul id="portfolio-flters">
+              <li data-filter="*" class="filter-active">Todos</li>
+              <li data-filter=".filter-app">Teste de Carga</li>
+              <li data-filter=".filter-card">Monitoramento de Recursos da Máquina</li>
+              <li data-filter=".filter-web">Emissão de Alertas e Relatórios</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row portfolio-container">
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp">
+            <div class="portfolio-wrap">
+              <figure>
+                <img src="img/portfolio/app1.jpg" class="img-fluid" alt="">
+                <a href="img/portfolio/app1.jpg" data-lightbox="portfolio" data-title="App 1" class="link-preview"
+                  title="Preview"><i class="ion ion-eye"></i></a>
+                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+              </figure>
+
+              <div class="portfolio-info">
+                <h4><a href="#">App 1</a></h4>
+                <p>App</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web wow fadeInUp" data-wow-delay="0.1s">
+            <div class="portfolio-wrap">
+              <figure>
+                <img src="img/portfolio/web3.jpg" class="img-fluid" alt="">
+                <a href="img/portfolio/web3.jpg" class="link-preview" data-lightbox="portfolio" data-title="Web 3"
+                  title="Preview"><i class="ion ion-eye"></i></a>
+                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+              </figure>
+
+              <div class="portfolio-info">
+                <h4><a href="#">Web 3</a></h4>
+                <p>Web</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.2s">
+            <div class="portfolio-wrap">
+              <figure>
+                <img src="img/portfolio/app2.jpg" class="img-fluid" alt="">
+                <a href="img/portfolio/app2.jpg" class="link-preview" data-lightbox="portfolio" data-title="App 2"
+                  title="Preview"><i class="ion ion-eye"></i></a>
+                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+              </figure>
+
+              <div class="portfolio-info">
+                <h4><a href="#">App 2</a></h4>
+                <p>App</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp">
+            <div class="portfolio-wrap">
+              <figure>
+                <img src="img/portfolio/card2.jpg" class="img-fluid" alt="">
+                <a href="img/portfolio/card2.jpg" class="link-preview" data-lightbox="portfolio" data-title="Card 2"
+                  title="Preview"><i class="ion ion-eye"></i></a>
+                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+              </figure>
+
+              <div class="portfolio-info">
+                <h4><a href="#">Card 2</a></h4>
+                <p>Card</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web wow fadeInUp" data-wow-delay="0.1s">
+            <div class="portfolio-wrap">
+              <figure>
+                <img src="img/portfolio/web2.jpg" class="img-fluid" alt="">
+                <a href="img/portfolio/web2.jpg" class="link-preview" data-lightbox="portfolio" data-title="Web 2"
+                  title="Preview"><i class="ion ion-eye"></i></a>
+                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+              </figure>
+
+              <div class="portfolio-info">
+                <h4><a href="#">Web 2</a></h4>
+                <p>Web</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.2s">
+            <div class="portfolio-wrap">
+              <figure>
+                <img src="img/portfolio/app3.jpg" class="img-fluid" alt="">
+                <a href="img/portfolio/app3.jpg" class="link-preview" data-lightbox="portfolio" data-title="App 3"
+                  title="Preview"><i class="ion ion-eye"></i></a>
+                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+              </figure>
+
+              <div class="portfolio-info">
+                <h4><a href="#">App 3</a></h4>
+                <p>App</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp">
+            <div class="portfolio-wrap">
+              <figure>
+                <img src="img/portfolio/card1.jpg" class="img-fluid" alt="">
+                <a href="img/portfolio/card1.jpg" class="link-preview" data-lightbox="portfolio" data-title="Card 1"
+                  title="Preview"><i class="ion ion-eye"></i></a>
+                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+              </figure>
+
+              <div class="portfolio-info">
+                <h4><a href="#">Card 1</a></h4>
+                <p>Card</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp" data-wow-delay="0.1s">
+            <div class="portfolio-wrap">
+              <figure>
+                <img src="img/portfolio/card3.jpg" class="img-fluid" alt="">
+                <a href="img/portfolio/card3.jpg" class="link-preview" data-lightbox="portfolio" data-title="Card 3"
+                  title="Preview"><i class="ion ion-eye"></i></a>
+                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+              </figure>
+
+              <div class="portfolio-info">
+                <h4><a href="#">Card 3</a></h4>
+                <p>Card</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web wow fadeInUp" data-wow-delay="0.2s">
+            <div class="portfolio-wrap">
+              <figure>
+                <img src="img/portfolio/web1.jpg" class="img-fluid" alt="">
+                <a href="img/portfolio/web1.jpg" class="link-preview" data-lightbox="portfolio" data-title="Web 1"
+                  title="Preview"><i class="ion ion-eye"></i></a>
+                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+              </figure>
+
+              <div class="portfolio-info">
+                <h4><a href="#">Web 1</a></h4>
+                <p>Web</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>#portfolio -->
+
+        <!--==========================
+      Team Section
+    ============================-->
+        <section id="team">
+            <div class="container">
+                <div class="section-header wow fadeInUp">
+                    <h3>Time</h3>
+                    <p>Conheça nossa equipe, das mais diversas especialidades e com as mais diversas experiências!</p>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-lg-3 col-md-6 wow fadeInUp">
+                        <div class="member">
+                            <img src="./img/fotos/henrique.jpg" class="img-fluid" alt="">
+                            <div class="member-info">
+                                <div class="member-info-content">
+                                    <h4>Henrique Carlos</h4>
+                                    <span>Web Designer</span>
+                                    <div class="social">
+                                        <a href=""><i class="fa fa-twitter"></i></a>
+                                        <a href=""><i class="fa fa-facebook"></i></a>
+                                        <a href=""><i class="fa fa-google-plus"></i></a>
+                                        <a href=""><i class="fa fa-linkedin"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 wow fadeInUp">
+                        <div class="member">
+                            <img src="./img/fotos/maycon.jpg" class="img-fluid" alt="">
+                            <div class="member-info">
+                                <div class="member-info-content">
+                                    <h4>Maycon Maia</h4>
+                                    <span>Analista de Banco de Dados</span>
+                                    <div class="social">
+                                        <a href=""><i class="fa fa-twitter"></i></a>
+                                        <a href=""><i class="fa fa-facebook"></i></a>
+                                        <a href=""><i class="fa fa-google-plus"></i></a>
+                                        <a href=""><i class="fa fa-linkedin"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="member">
+                            <img src="./img/fotos/oliver.jpg" class="img-fluid" alt="">
+                            <div class="member-info">
+                                <div class="member-info-content">
+                                    <h4>Oliver Lima</h4>
+                                    <span>Desenvolvedor e Designer</span>
+                                    <div class="social">
+                                        <a href=""><i class="fa fa-twitter"></i></a>
+                                        <a href=""><i class="fa fa-facebook"></i></a>
+                                        <a href=""><i class="fa fa-google-plus"></i></a>
+                                        <a href=""><i class="fa fa-linkedin"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="member">
+                            <img src="./img/fotos/ficuciello.jpg" class="img-fluid" alt="">
+                            <div class="member-info">
+                                <div class="member-info-content">
+                                    <h4>Pedro Ficuciello</h4>
+                                    <span>Gerente de Projetos</span>
+                                    <div class="social">
+                                        <a href=""><i class="fa fa-twitter"></i></a>
+                                        <a href=""><i class="fa fa-facebook"></i></a>
+                                        <a href=""><i class="fa fa-google-plus"></i></a>
+                                        <a href=""><i class="fa fa-linkedin"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="member">
+                            <img src="./img/fotos/ramon.jpg" class="img-fluid" alt="">
+                            <div class="member-info">
+                                <div class="member-info-content">
+                                    <h4>Ramon Gonçalves</h4>
+                                    <span>Desenvolvedor</span>
+                                    <div class="social">
+                                        <a href=""><i class="fa fa-twitter"></i></a>
+                                        <a href=""><i class="fa fa-facebook"></i></a>
+                                        <a href=""><i class="fa fa-google-plus"></i></a>
+                                        <a href=""><i class="fa fa-linkedin"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+        <!-- #team -->
+
+        <!--==========================
+      Contact Section
+    ============================-->
+        <section id="contact" class="section-bg wow fadeInUp">
+            <div class="container">
+
+                <div class="section-header">
+                    <h3>Contato</h3>
+                    <p>Entre em contato conosco! Teremos o prazer em prestar serviços para sua empresa!</p>
+                </div>
+
+                <div class="row contact-info">
+
+                    <div class="col-md-4">
+                        <div class="contact-address">
+                            <i class="ion-ios-location-outline"></i>
+                            <h3>Endereço</h3>
+                            <address>Rua Haddock Lobo, 595 - Cerqueira César, São Paulo - SP, 01414-001</address>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="contact-phone">
+                            <i class="ion-ios-telephone-outline"></i>
+                            <h3>Telefone</h3>
+                            <p><a href="tel:+551912345678">+55 11 91234-5678</a></p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="contact-email">
+                            <i class="ion-ios-email-outline"></i>
+                            <h3>E-mail</h3>
+                            <p><a href="mailto:info@example.com">primeloitters@prime.com</a></p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="form">
+                    <div id="sendmessage">Sua mensagem foi enviada. Obrigado!</div>
+                    <div id="errormessage"></div>
+                    <form action="" method="post" role="form" class="contactForm">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <input type="text" name="name" class="form-control" id="name" placeholder="Nome" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                <div class="validation"></div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="email" class="form-control" name="email" id="email" placeholder="E-mail" data-rule="email" data-msg="Please enter a valid email" />
+                                <div class="validation"></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="subject" id="subject" placeholder="Título" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                            <div class="validation"></div>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Mensagem"></textarea>
+                            <div class="validation"></div>
+                        </div>
+                        <div class="text-center"><button type="submit">Enviar mensagem</button></div>
+                    </form>
+                </div>
+
+            </div>
+        </section>
+        <!-- #contact -->
+
+    </main>
+
+    <!--==========================
+    Footer
+  ============================-->
+    <footer id="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-3 col-md-6 footer-info">
+                        <h3>PrimeLoitters</h3>
+                        <p>Nossos princípios seguem ao encontro do ideal de sucesso dos grandes empreendedores. Prezamos em contribuir positivamente no comércio de nossos clientes e levar dados para que nossos usuários possam traçar estratégias de acordo
+                            de seu objetivo..</p>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 footer-links">
+                        <h4>Links úteis</h4>
+                        <ul>
+                            <li><i class="ion-ios-arrow-right"></i> <a href="#">Inicio</a></li>
+                            <li><i class="ion-ios-arrow-right"></i> <a href="#about">Sobre</a></li>
+                            <li><i class="ion-ios-arrow-right"></i> <a href="#services">Serviços</a></li>
+                            <li><i class="ion-ios-arrow-right"></i> <a href="#team">Time</a></li>
+                            <li><i class="ion-ios-arrow-right"></i> <a href="./login.html">Acessar</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 footer-contact">
+                        <h4>Contato</h4>
+                        <p>
+                            Rua Haddock Lobo, 595 <br> Cerqueira César, São Paulo, SP <br> 01414-001 <br>
+                            <strong>Telefone:</strong> +55 11 91234-5678<br>
+                            <strong>E-mail:</strong> primeloitters@prime.com<br>
+                        </p>
+
+                        <div class="social-links">
+                            <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                            <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                            <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+                            <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+                            <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+                        </div>
+
+                    </div>
+
+                    <!-- <div class="col-lg-3 col-md-6 footer-newsletter">
+            <h4>Notícias</h4>
+            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna veniam enim veniam illum dolore
+              legam minim quorum culpa amet magna export quem marada parida nodela caramase seza.</p>
+            <form action="" method="post">
+              <input type="email" name="email"><input type="submit" value="Inscreva-se">
+            </form>
+          </div> -->
+
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="copyright">
+                &copy; Copyright <strong>PrimeLoitters</strong>. Todos os direitos reservados.
+            </div>
+            <div class="credits">
+                <!--
+          All the links in the footer should remain intact.
+          You can delete the links only if you purchased the pro version.
+          Licensing information: https://bootstrapmade.com/license/
+          Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=BizPage
+        -->
+            </div>
+        </div>
+    </footer>
+    <!-- #footer -->
+
+    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+    <!-- Uncomment below i you want to use a preloader -->
+    <!-- <div id="preloader"></div> -->
+
+    <!-- JavaScript Libraries -->
+    <script src="lib/jquery/jquery.min.js"></script>
+    <script src="lib/jquery/jquery-migrate.min.js"></script>
+    <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/superfish/hoverIntent.js"></script>
+    <script src="lib/superfish/superfish.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+    <script src="lib/touchSwipe/jquery.touchSwipe.min.js"></script>
+    <!-- Contact Form JavaScript File -->
+    <script src="contactform/contactform.js"></script>
+
+    <!-- Template Main Javascript File -->
+    <script src="js/main2.js"></script>
+
+    <script src="js/login-register.js"></script>
+    <script type="text/javascript">
+        // <![CDATA[
+        var ttChatLoaderS = document.createElement('script');
+        document.tomticketChatLoaderScriptVersion = 2;
+        ttChatLoaderS.src = 'https://kprunnin.tomticket.com/scripts-chat/chat.min.js'
+        + '?id=EP46889'
+        + '&autoOpen=0'
+        + '&hideWhenOffline=0'
+        + '&d=kprunnin'
+        + '&ts=' + new Date().getTime()
+        + '&ref=' + encodeURIComponent(document.URL);
+        document.body.appendChild(ttChatLoaderS);
+        //]]>
+        </script>
+
+</body>
+
+</html>

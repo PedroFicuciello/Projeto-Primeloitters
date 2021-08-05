@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Registrar Estabelecimento</title>
+
+    <script type="text/javascript" src="funcoes.js"></script>
+</head>
+
+<body>
+
+    <h2>Para completar o cadastro registre um Estabelecimento</h2>
+
+    <form id="form_cadastro_estabelecimento" method="post" onsubmit="return cadastrar()">
+        Nome Estabelecimento: <input type="text" name="nome" required minlength="4">
+        <br>
+        Numero de máquinas: <input type="text" name="numMaquinas" required minlength="4">
+        <br>
+        <button id="btn_entrar">Cadastrar</button>
+    </form>
+    <br>
+
+    <div id="Mensagem">
+
+    </div>
+    <img src="aguarde2.gif" id="img_aguarde" style="display: none;" width="100px">
+
+    <div id="div_erro" style="background-color: sandybrown; color: maroon; display: none;">
+        Erro no cadastro
+    </div>
+
+    <div></div>
+</body>
+
+</html>
+<script>
+
+    function cadastrar() {
+        aguardar();
+        var formulario = new URLSearchParams(new FormData(form_cadastro_estabelecimento));
+        fetch("/estabelecimentos/cadastrar", {
+            method: "POST",
+            body: formulario
+        }).then(function (response) {
+
+            if (response.ok) {
+
+                mensagem.innerHTML = "Estabelecimento registrado com sucesso! Gostaria de registrar outro?";
+                mensagem.innerHTML += `<a href="./registrarEstab.html"><button>Registrar outro</button></a>
+                                        <br> <a href="./login.html"><button>Ir para dash</button></a>`;
+
+            } else {
+
+                console.log('Erro ao cadastrar estabelecimento');
+                response.text().then(function (resposta) {
+                    div_erro.innerHTML = resposta;
+                });
+                finalizar_aguardar();
+            }
+        });
+
+        return false;
+    }
+
+    function aguardar() {
+        btn_entrar.disabled = true;
+        img_aguarde.style.display = 'block';
+        div_erro.style.display = 'none';
+    }
+
+    function finalizar_aguardar() {
+        btn_entrar.disabled = false;
+        img_aguarde.style.display = 'none';
+        div_erro.style.display = 'block';
+    }
+
+</script>

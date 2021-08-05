@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Cadastre-se</title>
+
+    <link href="images/favicon.png" rel="icon">
+    <link href="css/font-face.css" rel="stylesheet" media="all">
+    <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+    <link href="vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
+    <link href="css/theme.css" rel="stylesheet" media="all">
+
+    <style>
+        body {
+            background-color: black;
+        }
+    </style>
+</head>
+
+<body class="animsition">
+    <div class="page-wrapper">
+        <div class="container">
+            <div class="login-wrap">
+                <div class="login-content">
+                    <div class="login-logo" id="logo">
+                        <a href="#" id="a2">PrimeLoitters</a>
+                    </div>
+
+                    <div class="login-form">
+                        <form id="form_cadastro" method="post" onsubmit="return cadastrar()">
+                            <center>
+                                <div class="form-group">
+                                    <label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                        Obrigado por usar a ferramenta de testes! Com ela oferecemos a oportunidade do 
+                                        responsável realizar testes em servidores como desejar. Por questões de segurança
+                                        não solicitamos as configurações dos seus servidores, todavia, disponibilizamos um
+                                        material que contem a ferramenta responsável e um script de teste que pode ser modificado.
+                                        O material se encontra abaixo:
+
+                                        <br>
+                                        <br>
+                                        <a style="color: forestgreen; font-size: 20px;" href="https://1drv.ms/u/s!AlpWwqoNyNMabV57ZDvJ8G8iOHo?e=ovRlci"
+                                        download="kprunnin" target="_blank">Baixar ferramenta de teste
+                                        </a>
+                                        <br>
+                                        <br>
+
+                                        Esta é uma ferramenta de outra empresa, então todos os direitos estão reservados a ela.
+                                    </label>
+                                </div>
+                            </center>
+                            <center><button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">Voltar a Dashboard</button></center>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+    <script src="vendor/jquery-3.2.1.min.js"></script>
+    <script src="vendor/bootstrap-4.1/popper.min.js"></script>
+    <script src="vendor/bootstrap-4.1/bootstrap.min.js"></script>
+    <script src="vendor/slick/slick.min.js"></script>
+    <script src="vendor/wow/wow.min.js"></script>
+    <script src="vendor/animsition/animsition.min.js"></script>
+    <script src="vendor/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <script src="vendor/counter-up/jquery.waypoints.min.js"></script>
+    <script src="vendor/counter-up/jquery.counterup.min.js"></script>
+    <script src="vendor/circle-progress/circle-progress.min.js"></script>
+    <script src="vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="vendor/chartjs/Chart.bundle.min.js"></script>
+    <script src="vendor/select2/select2.min.js"></script>
+    <script src="js/main.js"></script>
+    <script type="text/javascript" src="funcoes.js"></script>
+</body>
+
+</html>
+
+<script>
+    let usuario;
+
+    verificar_autenticacao();
+
+    function cadastrar() {
+        var formulario = new URLSearchParams(new FormData(form_cadastro));
+        fetch(`/usuarios/redirecionar`, {
+            method: "POST",
+            body: formulario
+        }).then(function(response) {
+
+            if (response.ok) {
+
+                window.location.href = 'dash.html';
+
+            } else {
+
+                console.log('Erro ao redirecionar um usuário');
+                response.text().then(function(resposta) {});
+
+            }
+        });
+
+        return false;
+    }
+</script>

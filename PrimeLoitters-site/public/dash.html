@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Keep Runnin'</title>
+
+    <link href="images/favicon.png" rel="icon">
+    <link href="css/font-face.css" rel="stylesheet" media="all">
+    <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
+    <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+    <link href="vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
+    <link href="vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
+    <link href="vendor/wow/animate.css" rel="stylesheet" media="all">
+    <link href="vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
+    <link href="vendor/slick/slick.css" rel="stylesheet" media="all">
+    <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+    <link href="css/theme.css" rel="stylesheet" media="all">
+
+</head>
+
+<body class="animsition" onload="atualizar()">
+    <div class="page-wrapper">
+        <!-- Versão Mobile -->
+        <header class="header-mobile d-block d-lg-none">
+            <div class="header-mobile__bar">
+                <div class="container-fluid">
+                    <div class="header-mobile-inner">
+                        <a class="logo" id="logo" href="#">PrimeLoitters</a>
+                        <button class="hamburger hamburger--slider" type="button">
+                            <span class="hamburger-box">
+                                <span class="hamburger-inner"></span>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <nav class="navbar-mobile">
+                <div class="container-fluid">
+                    <ul class="navbar-mobile__list list-unstyled">
+                        <li>
+                            <a href="dash.html">
+                                <i class="fas fa-chart-bar"></i>Início</a>
+                        </li>
+
+                        <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-tachometer-alt"></i>Máquinas
+                            </a>
+
+                            <ul id="lista_maquinas2" class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                <li>
+                                    <a href="chart.html">Máquina 1
+
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="chart.html">Máquina 2
+
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="chart.html">Máquina 3
+
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="chart.html">Máquina 4
+
+                                    </a>
+                                </li>
+                            </ul>
+
+                        </li>
+
+                        <li>
+                            <a href="table.html">
+                                <i class="fas fa-table"></i>Tabelas
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="form.html">
+                                <i class="far fa-check-square"></i>Relatório
+                            </a>
+                        </li>
+
+                        <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-copy"></i>Configurações
+                            </a>
+                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                <li>
+                                    <a href="forget-pass.html">Trocar senha
+
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="estabelecimentos.html">
+                                <i class="fas fa-calendar-alt"></i>Trocar estabelecimento
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- Fim da versão mobile -->
+
+        <!-- InicioDoSitePadrao-->
+        <aside class="menu-sidebar d-none d-lg-block">
+            <div class="logo" id="logo">
+                <a href="#">
+                    PrimeLoitters
+                </a>
+            </div>
+            <div class="menu-sidebar__content js-scrollbar1">
+                <nav class="navbar-sidebar">
+                    <ul class="list-unstyled navbar__list">
+                        <li class="active">
+                            <a href="dash.html">
+                                <i class="fas fa-chart-bar"></i>Início
+                            </a>
+                        </li>
+                        <li class=" has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-tachometer-alt"></i>Máquinas
+                            </a>
+                            <ul id="lista_maquinas" class="list-unstyled navbar__sub-list js-sub-list">
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="table.html">
+                                <i class="fas fa-table"></i>Tabelas
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="form.html">
+                                <i class="far fa-check-square"></i>Relatório
+                            </a>
+                        </li>
+
+                        <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-copy"></i>Configurações
+                            </a>
+                            <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                <li>
+                                    <a href="forget-pass.html">
+                                        Trocar senha
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://1drv.ms/u/s!AlpWwqoNyNMabLTrZ61Zuhxna4A?e=QyMEio"
+                                        download="kprunnin" target="_blank">Baixar aplicação (Windows)
+
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://1drv.ms/u/s!AlpWwqoNyNMaa3U4fis6YIwJWtY?e=uEtdqz"
+                                        download="kprunnin" target="_blank">Baixar aplicação (Linux)
+
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="./ferramenta.html">
+                                        Ferramenta de testes
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="has-sub">
+                            <a class="js-arrow" href="./estabelecimentos.html">
+                                <i class="fas fa-desktop"></i> Trocar estabelecimento
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+        <!-- fim InicioDoSitePadrao -->
+
+        <!-- PAGE CONTAINER -->
+        <div class="page-container">
+            <!-- Versão Desktop -->
+            <header class="header-desktop">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        <div class="header-wrap">
+                            <form class="form-header" action="" method="POST"></form>
+                            <div class="header-button">
+                                <div class="noti-wrap">
+
+                                    <div class="noti__item js-item-menu">
+                                        <i class="zmdi zmdi-notifications"></i>
+                                        <span id="quantidade_alertas" class="quantity"></span>
+                                        <div id="mini_alerta" class="notifi-dropdown js-dropdown">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="account-wrap ">
+                                    <div class="account-item clearfix js-item-menu ">
+                                        <div class="image ">
+                                            <img src="images/icon/shop-image.jpg" alt="Estabelecimento X" />
+                                        </div>
+                                        <div class="content ">
+                                            <a id="nome_estabelecimento1" class="js-acc-btn" href="#"></a>
+                                        </div>
+                                        <div class="account-dropdown js-dropdown ">
+                                            <div class="info clearfix ">
+                                                <div class="image ">
+                                                    <a href="# ">
+                                                        <img src="images/icon/shop-image.jpg" alt="Estabelecimento X" />
+                                                    </a>
+                                                </div>
+                                                <div class="content ">
+                                                    <h5 class="name">
+                                                        <a href="#" id="nome_estabelecimento2"></a>
+                                                    </h5>
+                                                    <span class="email" id="codigo_estabelecimento"></span>
+                                                </div>
+                                            </div>
+                                            <div class="account-dropdown__footer ">
+                                                <a onclick="logoff()"><i class="zmdi zmdi-power "></i>Sair</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="main-content ">
+                <div class="section__content section__content--p30 ">
+                    <div class="container-fluid ">
+                        <div class="row ">
+                            <div class="col-md-12 ">
+                                <div class="overview-wrap ">
+                                    <h2 class="title-1 ">Tela inicial</h2>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row m-t-25">
+                            <center>
+                                <button class="btn btn-secondary" onclick="primeiroQuadro()">Ranking + alertas</button>
+                                <button class="btn btn-secondary" onclick="segundoQuadro()">Ranking alertas
+                                    lançados</button>
+                                <button class="btn btn-secondary" onclick="terceiroQuadro()">Atividades
+                                    recentes</button>
+                                <br><br>
+                                <div class="row2" id="quadro1" style="display: none; width: 80%;">
+                                    <div class="col-lg-6">
+                                        <div class="au-card au-card--no-shadow au-card--no-pad m-b-40 ">
+                                            <div class="au-card-title">
+                                                <div class="bg-overlay overview-item--c1 "></div>
+                                                <h3>
+                                                    <i class="zmdi zmdi-account-calendar "></i>
+                                                    <h3 id="data-hora "></h3>
+                                                </h3>
+                                            </div>
+                                            <center>
+                                                <div class="au-task js-list-load ">
+                                                    <div class="au-task__title ">
+                                                        <h5>Ranking máquinas com + alertas</h5>
+                                                        <h3 id="nome_estabelecimento3"></h3>
+                                                    </div>
+                                                    <table class="table table-borderless table-striped table-earning">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Código Máquina</th>
+                                                                <th>Número</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="ranking_maquinas_alertas"></tbody>
+                                                    </table>
+                                                </div>
+                                            </center>
+                                        </div>
+                                    </div>
+                                </div>
+                            </center>
+                        </div>
+
+                        <div class="row2" id="quadro2" style="display: none;">
+                            <center>
+                                <div class="col-lg-6" style="width: 80%;">
+                                    <div class="au-card au-card--no-shadow au-card--no-pad m-b-40 ">
+                                        <div class="au-card-title">
+                                            <div class="bg-overlay overview-item--c2 "></div>
+                                            <h3>
+                                                <i class="zmdi zmdi-account-calendar "></i>
+                                                <h3 id="data-hora2 "></h3>
+                                            </h3>
+                                        </div>
+                                        <center>
+                                            <div class="au-task js-list-load ">
+                                                <div class="au-task__title ">
+                                                    <h5>Ranking dos alertas lançados</h5>
+                                                </div>
+                                                <!-- <div id="recuperar_alertas2" class="au-task-list js-scrollbar3 ">
+                                                </div> -->
+                                                <table class="table table-borderless table-striped table-earning">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Alerta</th>
+                                                            <th>Número de alertas</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="ranking_alertas"></tbody>
+                                                </table>
+                                            </div>
+                                        </center>
+                                    </div>
+                                </div>
+                            </center>
+                        </div>
+
+                        <div class="row2" id="quadro3" style="display: none;">
+                            <center>
+                                <div class="col-lg-6" style="width: 80%;">
+                                    <div class="au-card au-card--no-shadow au-card--no-pad m-b-40 ">
+                                        <div class="au-card-title">
+                                            <div class="bg-overlay bg-overlay--blue "></div>
+                                            <h3>
+                                                <i class="zmdi zmdi-account-calendar "></i>
+                                                <h3 id="data-hora1 "></h3>
+                                            </h3>
+                                        </div>
+                                        <center>
+                                            <div class="au-task js-list-load ">
+                                                <div class="au-task__title ">
+                                                    <p>Atividades recentes</p>
+                                                    <h3 id="nome_estabelecimento3"></h3>
+                                                </div>
+                                                <div id="recuperar_alertas" class="au-task-list js-scrollbar3 ">
+                                                </div>
+                                            </div>
+                                        </center>
+                                    </div>
+                                </div>
+                            </center>
+                        </div>
+
+                    </div>
+                    <div class="row ">
+                        <div class="col-md-12 ">
+                            <div class="copyright ">
+                                <p>© Copyright <b>PrimeLoitters</b>. Todos os direitos reservados</a>.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Jquery JS-->
+                <script src="vendor/jquery-3.2.1.min.js "></script>
+                <!-- Bootstrap JS-->
+                <script src="vendor/bootstrap-4.1/popper.min.js "></script>
+                <script src="vendor/bootstrap-4.1/bootstrap.min.js "></script>
+                <!-- Vendor JS       -->
+                <script src="vendor/slick/slick.min.js ">
+                </script>
+                <script src="vendor/wow/wow.min.js "></script>
+                <script src="vendor/animsition/animsition.min.js "></script>
+                <script src="vendor/bootstrap-progressbar/bootstrap-progressbar.min.js ">
+                </script>
+                <script src="vendor/counter-up/jquery.waypoints.min.js "></script>
+                <script src="vendor/counter-up/jquery.counterup.min.js ">
+                </script>
+                <script src="vendor/circle-progress/circle-progress.min.js "></script>
+                <script src="vendor/perfect-scrollbar/perfect-scrollbar.js "></script>
+                <script src="vendor/chartjs/Chart.bundle.min.js "></script>
+                <script src="vendor/select2/select2.min.js "></script>
+                <script src="js/data.js "></script>
+
+                <!-- Main JS-->
+                <script src="js/main.js "></script>
+
+                <!-- Dashboard JS -->
+                <script type="text/javascript" src="https://www.chartjs.org/dist/2.8.0/Chart.min.js"></script>
+                <script type="text/javascript" src="https://www.chartjs.org/samples/latest/utils.js"></script>
+                <script type="text/javascript" src="funcoes.js"></script>
+                <script type="text/javascript" src="./js/graficoMemoria.js"></script>
+                <script type="text/javascript" src="./js/graficoCpu.js"></script>
+                <script type="text/javascript" src="./js/graficoDisco.js"></script>
+                <script type="text/javascript" src="./js/funcaoBotao.js"></script>
+                <script type="text/javascript">
+                    // <![CDATA[
+                    var ttChatLoaderS = document.createElement('script');
+                    document.tomticketChatLoaderScriptVersion = 2;
+                    ttChatLoaderS.src = 'https://kprunnin.tomticket.com/scripts-chat/chat.min.js'
+                    + '?id=EP46889'
+                    + '&autoOpen=0'
+                    + '&hideWhenOffline=0'
+                    + '&d=kprunnin'
+                    + '&ts=' + new Date().getTime()
+                    + '&ref=' + encodeURIComponent(document.URL);
+                    document.body.appendChild(ttChatLoaderS);
+                    //]]>
+                    </script>
+                
+</body>
+
+</html>
+<!-- end document-->
+
+<script>
+    function atualizar() {
+        coletar();
+        alertas();
+        nome_estabelecimento1.innerHTML = `${getNomeEstab()}`;
+        nome_estabelecimento2.innerHTML = `${getNomeEstab()}`;
+        nome_estabelecimento3.innerHTML = `${getNomeEstab()}`;
+
+        codigo_estabelecimento.innerHTML = `${getCodEstab()}`;
+        primeiroQuadro();
+    }
+    let idMaquina;
+
+    document.body.addEventListener("click", function (event) {
+
+        for (i = 0; i < opcoes.length; i++) {
+            if (event.target.id == opcoes[i]) {
+
+                fetch(`/usuarios/redirecionar`, {
+                    cache: 'no-store'
+                }).then(function (response) {
+                    sessionStorage.id_maquina_meuapp = event.target.id;
+                    window.location.href = "chart.html";
+                });
+
+            }
+        }
+    });
+
+    let usuario;
+
+    verificar_autenticacao();
+
+    var opcoes = [];
+
+    function coletar() {
+        fetch(`/maquinas/recuperar/${getIdEstab()}`, {
+            cache: 'no-store'
+        }).then(function (response) {
+            if (response.ok) {
+
+                response.json().then(function (resposta) {
+
+                    for (i = 0; i < resposta.length; i++) {
+
+                        var registro = resposta[i];
+                        lista_maquinas.innerHTML += `
+                        <li>
+                            <a href="" id="${registro.IdMaquina}">${registro.codigoMaquina}</a>
+                        </li>
+                        `;
+
+                        opcoes.push(`${registro.IdMaquina}`);
+                    }
+
+                    lista_maquinas.innerHTML += `
+                        <li>
+                            <a href="./register-maq.html">Nova Máquina</a>
+                        </li>
+                        `;
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+    function alertas() {
+        fetch(`/alertas/recuperar/${getIdEstab()}`, {
+            cache: 'no-store'
+        }).then(function (response) {
+            if (response.ok) {
+
+                response.json().then(function (resposta) {
+
+                    if (resposta.length > 7) {
+                        quantidade_alertas.innerHTML += `+7`;
+                    } else {
+                        quantidade_alertas.innerHTML += `${resposta.length}`;
+                    }
+                    mini_alerta.innerHTML += `
+                        <div class="notifi__title">
+                            <p>Você tem ${resposta.length} notificações</p>
+                        </div>
+                        `;
+                    for (i = 0; i < resposta.length; i++) {
+
+                        var registro = resposta[i];
+
+                        mini_alerta.innerHTML += `
+                            <div class="notifi__item">
+                                <div class="bg-c3 img-cir img-40 ">
+                                    <i class="zmdi zmdi-file-text "></i>
+                                </div>
+                                <div class="content">
+                                        <p>${registro.alerta}</p>
+                                </div>
+                            </div>
+                            `;
+
+                        recuperar_alertas.innerHTML += `
+                        <div class="au-task__item au-task__item--warning ">
+                            <div class="au-task__item-inner ">
+                                <h5 class="task ">
+                                    ${registro.alerta}
+                                </h5>
+                            </div>
+                        </div>
+                        `;
+
+                    }
+
+                    recuperar_alertas.innerHTML += `
+                    <div class="au-task__footer ">
+                    <center><button class="au-btn au-btn-load js-load-bt                                         </div>
+                    </div></div></div></div></div><!-- <div class=" row "> -->
+                    `;
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+
+    function rankingMaquinas() {
+        fetch(`/alertas/ranking/${getIdEstab()}`, {
+            cache: 'no-store'
+        }).then(function (response) {
+            if (response.ok) {
+
+                var antiga = null;
+                var vetorRanking = [];
+                var vetorRanking2 = [];
+                var contador = 0;
+
+                response.json().then(function (resposta) {
+
+                    ranking_maquinas_alertas.innerHTML = ``;
+
+                    for (i = 0; i < resposta.length; i++) {
+
+                        if (antiga == resposta[i].codigoMaquina) {
+                            vetorRanking.push(resposta[i].codigoMaquina);
+                        }
+
+                        if (antiga != resposta[i].codigoMaquina) {
+                            vetorRanking2.push(resposta[i].codigoMaquina);
+                        }
+
+                        antiga = resposta[i].codigoMaquina;
+                    }
+
+                    for (j = 0; j < vetorRanking2.length; j++) {
+                        for (k = 0; k < vetorRanking.length; k++) {
+                            if (vetorRanking2[j] == vetorRanking[k]) {
+                                contador++;
+                            }
+                        }
+
+                        ranking_maquinas_alertas.innerHTML += `
+                        <tr>
+                            <td>${vetorRanking2[j]}</td>
+                            <td>${contador}</td>
+                        </tr>`;
+                        contador = 0;
+                    }
+
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+    function grafico_alertas() {
+
+        fetch(`/alertas/ranking/${getIdEstab()}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                var contadorCPU = 0;
+                var contadorDisco = 0;
+                var contadorMemoria = 0;
+
+                response.json().then(function (resposta) {
+
+                    ranking_alertas.innerHTML = ``;
+
+                    for (i = 0; i < resposta.length; i++) {
+                        var registro = resposta[i];
+
+                        if (registro.alerta.includes('Uso de cpu')) {
+                            contadorCPU++;
+                        } else if (registro.alerta.includes('Uso de memória')) {
+                            contadorMemoria++;
+                        } else if (registro.alerta.includes('Uso de disco')) {
+                            contadorDisco++;
+                        } else {
+
+                        }
+                    }
+
+                    ranking_alertas.innerHTML += `
+                    <tr>
+                        <td>Alerta de CPU</td>
+                        <td>${contadorCPU}</td>
+                    </tr>
+                    <tr>
+                        <td>Alerta de Memoria</td>
+                        <td>${contadorMemoria}</td>
+                    </tr>
+                    <tr>
+                        <td>Alerta de Disco</td>
+                        <td>${contadorDisco}</td>
+                    </tr>
+                    `;
+
+                });
+            } else {
+                console.log('erro');
+                // if (contador == 0) {
+                //     abreModal();
+                //     contador++;
+                // }
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+
+    }
+</script>
